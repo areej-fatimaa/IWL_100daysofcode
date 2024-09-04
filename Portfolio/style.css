@@ -1,3 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Prevents horizontal overflow */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 100vw; /* Ensures elements don't extend beyond the viewport */
+    overflow-x: hidden;
+}
+
 
 /* appling google font over the website  */
 body{
