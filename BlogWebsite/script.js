@@ -1,24 +1,26 @@
-// Ensure DOM is fully loaded
-$(document).ready(function () {
-    // Nav background change on scroll
-    let header = $("header");
-    $(window).on("scroll", function () {
-        header.toggleClass("shadow", $(window).scrollTop() > 0);
-    });
+// nav background
+let header = document.querySelector("header");
 
-    // Filter functionality
-    $(".filter-item").on("click", function () {
-        const value = $(this).data("filter");
-        if (value === "all") {
-            $(".post-box").show("1000");
-        } else {
+window.addEventListener("scroll", () => {
+    header.classList.toggle("shadow", window.scrollY > 0)
+})
+
+//Filter
+$(document).ready(function () {
+    $(".filter-item").click(function () {
+        const value = $(this).attr("data-filter");
+        if (value == "all"){
+            $(".post-box").show("1000")
+        } else{
             $(".post-box")
                 .not("." + value)
                 .hide(1000);
             $(".post-box")
-                .filter("." + value)
-                .show("1000");
+            .filter("." + value)
+            .show("1000")
         }
-        $(this).addClass("active-filter").siblings().removeClass("active-filter");
+    });
+    $(".filter-item").click(function () {
+        $(this).addClass("active-filter").siblings().removeClass("active-filter")
     });
 });
